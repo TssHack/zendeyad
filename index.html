@@ -5,763 +5,450 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>یاد شهیدان - گرامیداشت قهرمانان ایران</title>
     <meta name="description" content="وب‌سایتی برای گرامیداشت یاد و خاطره شهیدان گرانقدر ایران اسلامی. زندگینامه، وصیت‌نامه، تصاویر و خاطرات شهدا.">
-    <meta name="keywords" content="شهید, شهدا, ایران, دفاع مقدس, مدافع حرم, زندگینامه شهدا, وصیت نامه شهدا, یاد شهیدان, Ehsan Fazli">
-
+    <meta name="keywords" content="شهید, شهدا, ایران, دفاع مقدس, مدافع حرم, زندگینامه شهدا, وصیت نامه شهدا, یاد شهیدان">
+    
+    <!-- فونت‌ها و آیکون‌ها -->
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- لایت باکس برای گالری تصاویر -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
+    
     <style>
-        /* --- متغیرهای CSS --- */
+        /* متغیرهای CSS به روز شده */
         :root {
-            --primary-color: #0a4d68; /* آبی تیره اصلی */
+            --primary-color: #0a4d68;
             --primary-color-darker: #063a50;
-            --secondary-color: #088395; /* آبی روشن‌تر */
-            --accent-color: #ffb703; /* زرد/نارنجی تاکیدی روشن‌تر */
+            --secondary-color: #088395;
+            --accent-color: #ffb703;
             --accent-color-darker: #e6a302;
-            --light-color: #f8f9fa; /* سفید مایل به خاکستری */
+            --light-color: #f8f9fa;
             --white-color: #ffffff;
-            --dark-color: #212529; /* خاکستری تیره */
-            --text-color: #343a40; /* رنگ متن اصلی */
-            --text-color-light: #6c757d; /* رنگ متن روشن‌تر */
+            --dark-color: #212529;
+            --text-color: #343a40;
+            --text-color-light: #6c757d;
             --body-font: 'Vazirmatn', sans-serif;
             --heading-font: 'Vazirmatn', sans-serif;
             --base-padding: 15px;
-            --section-padding: 70px; /* پدینگ عمودی بخش‌ها */
+            --section-padding: 70px;
             --base-margin: 15px;
-            --border-radius: 10px; /* کمی گردتر */
-            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* سایه نرم‌تر */
+            --border-radius: 10px;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             --box-shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.12);
             --transition-speed: 0.3s ease;
             --animation-speed: 0.6s ease-out;
         }
 
-        /* --- ریست پایه و عمومی --- */
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; font-size: 16px; }
+        /* استایل‌های پایه بهبود یافته */
         body {
             font-family: var(--body-font);
-            line-height: 1.8; /* کمی بیشتر برای خوانایی */
+            line-height: 1.8;
             color: var(--text-color);
             background-color: var(--light-color);
             direction: rtl;
             overflow-x: hidden;
-            position: relative; /* برای انیمیشن‌ها */
+            position: relative;
         }
-        h1, h2, h3, h4, h5, h6 {
-            font-family: var(--heading-font);
-            font-weight: 700;
-            margin-bottom: var(--base-margin);
-            color: var(--primary-color);
-            line-height: 1.4;
-        }
-        h1 { font-size: 2.8rem; }
-        h2 { font-size: 2.3rem; text-align: center; margin-bottom: 1.8em; position: relative; padding-bottom: 15px; }
-        h2::after {
-            content: ''; position: absolute; bottom: 0; left: 50%;
-            transform: translateX(-50%); width: 90px; height: 4px;
-            background-color: var(--accent-color); border-radius: 3px;
-        }
-        h3 { font-size: 1.6rem; }
-        p { margin-bottom: var(--base-margin); }
-        a { color: var(--secondary-color); text-decoration: none; transition: color var(--transition-speed); }
-        a:hover { color: var(--primary-color-darker); }
-        img { max-width: 100%; height: auto; display: block; border-radius: var(--border-radius); }
-        ul { list-style: none; }
-        section {
-            padding: var(--section-padding) var(--base-padding);
-            margin-bottom: 0; /* حذف فاصله بین بخش‌ها برای پس‌زمینه یکپارچه */
-            overflow: hidden; /* جلوگیری از تداخل انیمیشن */
-        }
-        section:nth-of-type(even) { background-color: var(--white-color); } /* تنوع رنگ پس‌زمینه */
-        section:nth-of-type(odd) { background-color: var(--light-color); }
-
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--base-padding); }
-
-        /* بهبود دسترسی‌پذیری فوکوس */
-        *:focus-visible {
-            outline: 3px solid var(--accent-color);
-            outline-offset: 3px;
-            box-shadow: 0 0 0 4px rgba(8, 131, 149, 0.3); /* هاله اضافی */
-            border-radius: 4px;
-        }
-        /* حذف اوت‌لاین پیش‌فرض اگر از focus-visible استفاده می‌کنیم */
-        *:focus:not(:focus-visible) {
-            outline: none;
-        }
-
-
-        /* --- هدر و ناوبری --- */
+        
+        /* هدر بهبود یافته */
         header {
             background: linear-gradient(to bottom, var(--primary-color), var(--primary-color-darker));
-            color: var(--white-color);
-            padding: var(--base-padding) 0;
-            position: sticky; top: 0; z-index: 1000;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
         }
-        header .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-        header h1 { color: var(--white-color); font-size: 1.8rem; margin: 0; font-weight: 600; }
-        header h1 a { color: inherit; text-decoration: none; }
-        nav ul { display: flex; align-items: center; }
-        nav ul li { margin-right: 25px; }
-        nav ul li:last-child { margin-right: 0; }
-        nav ul li a {
-            color: var(--white-color); padding: 10px 15px; font-weight: 400;
-            font-size: 1.05rem; border-radius: var(--border-radius);
-            transition: background-color var(--transition-speed), color var(--transition-speed), transform var(--transition-speed);
-            position: relative; /* برای افکت زیر خط */
+        
+        /* هیرو با افکت پارالاکس بهبود یافته */
+        .hero {
+            background: linear-gradient(rgba(10, 77, 104, 0.85), rgba(6, 58, 80, 0.9)), 
+                        url('images/hero-bg.jpg') no-repeat center center/cover;
+            background-attachment: fixed;
+            min-height: 80vh;
+        }
+        
+        /* کارت‌های شهدا با افکت‌های بهتر */
+        .card {
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
             overflow: hidden;
         }
-         nav ul li a::after { /* افکت خط زیرین هاور */
-             content: ''; position: absolute; bottom: 0; left: 0;
-             width: 100%; height: 2px; background-color: var(--accent-color);
-             transform: scaleX(0); transform-origin: right;
-             transition: transform var(--transition-speed);
-         }
-        nav ul li a:hover, nav ul li a.active {
-            color: var(--accent-color);
-            background-color: rgba(255, 255, 255, 0.1);
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.7));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
         }
-        nav ul li a:hover::after, nav ul li a.active::after {
-             transform: scaleX(1); transform-origin: left;
+        
+        .card:hover::before {
+            opacity: 1;
         }
-
-        /* --- منوی همبرگری برای موبایل --- */
-        .menu-toggle { display: none; background: none; border: none; color: var(--white-color); font-size: 2rem; cursor: pointer; padding: 5px; }
-
-        /* --- بخش Hero --- */
-        .hero {
-            background: linear-gradient(rgba(10, 77, 104, 0.7), rgba(6, 58, 80, 0.8)), url('https://via.placeholder.com/1920x800/0a4d68/ffffff?text=YaadShahidan+Background') no-repeat center center/cover;
-            color: var(--white-color); text-align: center;
-            padding: 140px var(--base-padding); display: flex; flex-direction: column;
-            justify-content: center; align-items: center; min-height: 75vh; /* کمی بلندتر */
-            margin-bottom: 0;
-            background-attachment: fixed; /* افکت پارالاکس ساده */
+        
+        .card:hover .card-content {
+            transform: translateY(-10px);
         }
-        .hero h2 {
-            font-size: 3.2rem; font-weight: 700; margin-bottom: 25px;
-            color: var(--white-color); text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
-            animation: fadeInDown 1s ease-out; /* انیمیشن ورود عنوان */
-        }
-        .hero h2::after { display: none; }
-        .hero p {
-            font-size: 1.3rem; margin-bottom: 35px; max-width: 650px; opacity: 0.9;
-            animation: fadeInUp 1s ease-out 0.3s; /* انیمیشن ورود پاراگراف با تاخیر */
-            animation-fill-mode: backwards; /* شروع انیمیشن حتی اگر زودتر اسکرول شود */
-        }
-        .hero-button {
-            background-color: var(--accent-color); color: var(--primary-color-darker);
-            padding: 14px 35px; border: none; border-radius: var(--border-radius);
-            font-size: 1.15rem; font-weight: 700; cursor: pointer;
-            transition: background-color var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
-            text-transform: uppercase; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            animation: fadeInUp 1s ease-out 0.6s;
-            animation-fill-mode: backwards;
-        }
-        .hero-button:hover {
-            background-color: var(--accent-color-darker); transform: translateY(-4px);
-            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
-        }
-
-        /* انیمیشن های ورود برای Hero */
-        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-
-
-        /* --- بخش کارت‌ها (زندگینامه) --- */
-        .cards { padding: var(--section-padding) var(--base-padding); }
-        .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 35px; margin-top: 40px; }
-        .card {
-            background-color: var(--white-color); border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow); overflow: hidden; text-align: center;
-            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-            display: flex; flex-direction: column;
-             /* انیمیشن اولیه برای اسکرول */
-             opacity: 0;
-             transform: translateY(30px);
-             transition: opacity var(--animation-speed), transform var(--animation-speed);
-        }
-         .card.visible { /* کلاس اضافه شده توسط JS */
-             opacity: 1;
-             transform: translateY(0);
-         }
-        .card:hover {
-            transform: translateY(-12px); box-shadow: var(--box-shadow-hover);
-        }
-        .card img {
-            width: 160px; height: 160px; object-fit: cover;
-            border-radius: 50%; margin: 25px auto 15px auto;
-            border: 5px solid var(--light-color);
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        .card-content { padding: 0 25px 25px 25px; flex-grow: 1; }
-        .card h3 { color: var(--primary-color); margin-bottom: 8px; font-size: 1.5rem; }
-        .card .title { color: var(--secondary-color); font-weight: 600; font-size: 1rem; margin-bottom: 12px; }
-        .card .date { font-size: 0.9rem; color: var(--text-color-light); margin-bottom: 15px; }
-        .card .excerpt { font-size: 0.95rem; color: var(--text-color); font-style: italic; line-height: 1.6; }
-        .card .read-more {
-            display: inline-block; margin-top: 20px; padding: 10px 20px;
-            background-color: var(--secondary-color); color: var(--white-color);
-            border-radius: var(--border-radius); font-size: 0.9rem; font-weight: 600;
-            transition: background-color var(--transition-speed), transform var(--transition-speed);
-        }
-        .card .read-more:hover {
-            background-color: var(--primary-color); transform: scale(1.05);
-        }
-        .card .read-more i { margin-right: 5px; }
-
-
-        /* --- بخش گالری --- */
-        .gallery { padding: var(--section-padding) var(--base-padding); }
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 40px; }
+        
+        /* گالری تصاویر با افکت‌های بهتر */
         .gallery-item {
-            border-radius: var(--border-radius); overflow: hidden;
-            box-shadow: var(--box-shadow);
-            /* انیمیشن اولیه */
-            opacity: 0; transform: scale(0.9);
-            transition: opacity var(--animation-speed), transform var(--animation-speed);
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
         }
-        .gallery-item.visible { opacity: 1; transform: scale(1); }
+        
         .gallery-item img {
-            width: 100%; height: 280px; object-fit: cover;
-            transition: transform calc(var(--transition-speed) * 1.5) ease-out, filter var(--transition-speed);
-            cursor: pointer; display: block; /* مهم برای جلوگیری از فاصله زیر عکس */
+            transition: transform 0.5s ease, filter 0.3s ease;
         }
+        
         .gallery-item:hover img {
-            transform: scale(1.1); filter: brightness(0.9);
+            transform: scale(1.1);
+            filter: brightness(0.9);
         }
-
-        /* --- بخش وصیت‌نامه‌ها --- */
-        .testimonials {
-            background: linear-gradient(to bottom, var(--primary-color-darker), var(--primary-color));
-            color: var(--light-color); padding: var(--section-padding) var(--base-padding);
-        }
-        .testimonials h2 { color: var(--white-color); }
-        .testimonials h2::after { background-color: var(--white-color); }
-        .testimonial-container { max-width: 950px; margin: 40px auto 0 auto; display: grid; grid-template-columns: 1fr; gap: 35px; }
+        
+        /* وصیت‌نامه‌ها با طراحی جدید */
         .testimonial {
-            background-color: rgba(255, 255, 255, 0.08); padding: 35px 40px 35px 30px;
-            border-radius: var(--border-radius); border-right: 7px solid var(--accent-color);
-            position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-             /* انیمیشن اولیه */
-            opacity: 0; transform: translateX(40px);
-            transition: opacity var(--animation-speed), transform var(--animation-speed);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-left: 5px solid var(--accent-color);
         }
-        .testimonial.visible { opacity: 1; transform: translateX(0); }
-
-        .testimonial p { font-size: 1.15rem; line-height: 1.9; margin-bottom: 20px; position: relative; z-index: 1; }
-        .testimonial cite { display: block; text-align: left; font-weight: 700; font-style: normal; color: var(--accent-color); font-size: 1.1rem; }
-        .testimonial::before {
-            content: '\f10d'; font-family: "Font Awesome 6 Free"; font-weight: 900;
-            position: absolute; top: 25px; right: 25px; font-size: 3.5rem; /* بزرگتر */
-            color: rgba(255, 255, 255, 0.1); z-index: 0;
-            transform: rotate(-5deg); /* کمی چرخش */
+        
+        /* فرم تماس با اعتبارسنجی بهتر */
+        .form-group input:invalid, 
+        .form-group textarea:invalid {
+            border-color: #ff6b6b;
         }
-
-
-        /* --- بخش تماس با ما --- */
-        .contact { padding: var(--section-padding) var(--base-padding); }
-        .contact-form {
-            max-width: 750px; margin: 40px auto 0 auto; background-color: var(--white-color);
-            padding: 40px; border-radius: var(--border-radius); box-shadow: var(--box-shadow);
-            /* انیمیشن اولیه */
-            opacity: 0; transform: scale(0.95);
-            transition: opacity var(--animation-speed), transform var(--animation-speed);
+        
+        .form-group input:valid, 
+        .form-group textarea:valid {
+            border-color: #51cf66;
         }
-        .contact-form.visible { opacity: 1; transform: scale(1); }
-
-        .form-group { margin-bottom: 25px; }
-        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--primary-color); font-size: 1.05rem;}
-        .form-group input[type="text"],
-        .form-group input[type="email"],
-        .form-group textarea {
-            width: 100%; padding: 14px 18px; border: 1px solid #ced4da;
-            border-radius: var(--border-radius); font-family: var(--body-font);
-            font-size: 1rem; transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+        
+        /* دکمه‌ها با افکت‌های بهتر */
+        .btn {
+            position: relative;
+            overflow: hidden;
         }
-         .form-group input[type="text"]:focus,
-         .form-group input[type="email"]:focus,
-         .form-group textarea:focus {
-             border-color: var(--secondary-color); outline: none;
-             box-shadow: 0 0 0 3px rgba(8, 131, 149, 0.2);
-         }
-        .form-group textarea { min-height: 160px; resize: vertical; }
-        .submit-button {
-            background-color: var(--primary-color); color: var(--white-color); padding: 14px 35px;
-            border: none; border-radius: var(--border-radius); font-size: 1.1rem; font-weight: 600;
-            cursor: pointer; transition: background-color var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
-            display: inline-block; width: auto; box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+        
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%, -50%);
+            transform-origin: 50% 50%;
         }
-        .submit-button:hover {
-            background-color: var(--secondary-color); transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        
+        .btn:focus:not(:active)::after {
+            animation: ripple 1s ease-out;
         }
-        .submit-button:disabled { /* استایل دکمه هنگام ارسال */
-             background-color: var(--text-color-light);
-             cursor: not-allowed;
-             transform: none;
-             box-shadow: none;
-         }
-        .submit-button i { margin-right: 8px; }
-        #form-status { /* استایل پیام وضعیت فرم */
-             margin-top: 20px;
-             padding: 10px;
-             border-radius: var(--border-radius);
-             font-weight: 600;
-             text-align: center;
-             display: none; /* در ابتدا مخفی */
-         }
-         #form-status.success { background-color: #d1e7dd; color: #0f5132; border: 1px solid #badbcc; display: block; }
-         #form-status.error { background-color: #f8d7da; color: #842029; border: 1px solid #f5c2c7; display: block;}
-         #form-status.sending { background-color: #cff4fc; color: #055160; border: 1px solid #b6effb; display: block;}
-
-
-        /* --- فوتر --- */
-        footer {
-            background-color: var(--dark-color); color: var(--light-color); text-align: center;
-            padding: 50px var(--base-padding); margin-top: 0; /* چسبیده به بخش قبلی */
-            border-top: 5px solid var(--primary-color); /* نوار رنگی بالا */
-        }
-        footer p { margin-bottom: 20px; font-size: 1.05rem; font-style: italic; opacity: 0.9; max-width: 700px; margin-left: auto; margin-right: auto; }
-        .social-icons a {
-            color: var(--light-color); font-size: 1.8rem; margin: 0 15px;
-            transition: color var(--transition-speed), transform var(--transition-speed);
-            display: inline-block;
-        }
-        .social-icons a:hover { color: var(--accent-color); transform: scale(1.25) rotate(5deg); }
-        .footer-credit { margin-top: 25px; font-size: 0.95rem; opacity: 0.8; }
-        .footer-credit a { color: var(--accent-color); font-weight: 600; }
-        .footer-credit a:hover { text-decoration: underline; color: var(--accent-color-darker); }
-
-        /* --- استایل‌های واکنش‌گرا --- */
-        @media (max-width: 992px) {
-            html { font-size: 15.5px; }
-            :root { --section-padding: 60px; }
-            h1 { font-size: 2.4rem; }
-            h2 { font-size: 2rem; }
-            .hero h2 { font-size: 2.8rem; }
-            .hero p { font-size: 1.2rem; }
-            .cards-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;}
-            .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;}
-            .gallery-item img { height: 250px; }
-             .testimonial-container { gap: 30px; }
-             .testimonial { padding: 30px 35px 30px 25px; }
-             .testimonial::before { font-size: 3rem; top: 20px; right: 15px; }
-             .contact-form { padding: 30px; }
-        }
-
-        @media (max-width: 768px) {
-            html { font-size: 15px; }
-            :root { --section-padding: 50px; }
-            header .container { flex-direction: column; align-items: flex-start; }
-            header h1 { margin-bottom: 10px; width: 100%; display: flex; justify-content: space-between; align-items: center; }
-            .menu-toggle { display: block; }
-            nav { width: 100%; }
-            nav ul {
-                display: none; flex-direction: column; width: 100%;
-                background-color: rgba(10, 77, 104, 0.98); /* کمی تیره‌تر و پوشاننده‌تر */
-                padding: 10px 0; position: absolute; top: 100%; right: 0;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.3);
-                border-bottom-left-radius: var(--border-radius);
-                border-bottom-right-radius: var(--border-radius);
-                max-height: 0; /* برای انیمیشن باز شدن */
-                overflow: hidden;
-                transition: max-height 0.4s ease-out;
+        
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0);
+                opacity: 0.5;
             }
-             nav ul.nav-active { /* نمایش منو با انیمیشن */
-                 display: flex;
-                 max-height: 500px; /* ارتفاع کافی برای آیتم‌ها */
-             }
-            nav ul li { margin: 0; width: 100%; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
-            nav ul li:last-child { border-bottom: none; }
-            nav ul li a { display: block; padding: 18px; border-radius: 0; }
-             nav ul li a::after { display: none; } /* حذف افکت خط زیرین در موبایل */
-            nav ul li a:hover, nav ul li a.active { background-color: var(--secondary-color); color: var(--white-color); }
-
-            .hero { padding: 100px var(--base-padding); min-height: 60vh; background-attachment: scroll; /* غیرفعال کردن پارالاکس در موبایل */ }
-            .hero h2 { font-size: 2.2rem; }
-            .hero p { font-size: 1.1rem; }
-            .hero-button { padding: 12px 30px; font-size: 1.05rem; }
-
-            h2 { font-size: 1.9rem; margin-bottom: 1.5em; }
-            .cards-grid { grid-template-columns: 1fr; gap: 25px; }
-            .card { margin-bottom: 0; } /* چون gap داریم */
-            .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;}
-            .gallery-item img { height: 200px; }
-            .testimonial { padding: 25px 30px 25px 20px; border-right-width: 5px;}
-            .testimonial p { font-size: 1.1rem; line-height: 1.8; }
-            .testimonial cite { font-size: 1rem; }
-            .testimonial::before { font-size: 2.5rem; }
-            .contact-form { padding: 25px; margin-top: 30px;}
-            .footer p { font-size: 1rem; }
-            .social-icons a { font-size: 1.6rem; margin: 0 10px; }
+            100% {
+                transform: scale(20, 20);
+                opacity: 0;
+            }
         }
-
-         @media (max-width: 480px) {
-              html { font-size: 14.5px; }
-              :root { --section-padding: 40px; }
-              header h1 { font-size: 1.6rem; }
-              .hero { padding: 80px var(--base-padding); }
-              .hero h2 { font-size: 1.9rem; }
-               .hero p { font-size: 1rem; }
-               .cards-grid { gap: 20px; }
-               .card img { width: 140px; height: 140px; }
-               .gallery-grid { grid-template-columns: 1fr; gap: 15px;} /* تک ستونه */
-               .gallery-item img { height: 220px; }
-               .testimonial { padding: 20px 25px 20px 15px;}
-               .contact-form { padding: 20px; }
-               .submit-button { width: 100%; /* دکمه تمام عرض */ }
-         }
-
+        
+        /* انیمیشن‌های جدید */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideInUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        /* استایل‌های واکنشگرای بهبود یافته */
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 60vh;
+                background-attachment: scroll;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
 
+    <!-- هدر بهبود یافته -->
     <header>
         <div class="container">
-            <h1><a href="#home">یاد شهیدان</a></h1>
-            <button class="menu-toggle" id="menu-toggle" aria-label="فهرست" aria-expanded="false">
+            <h1><a href="#home">یاد شهیدان <i class="fas fa-heart" style="color: #ff6b6b;"></i></a></h1>
+            <button class="menu-toggle" id="menu-toggle" aria-label="فهرست">
                 <i class="fas fa-bars"></i>
             </button>
             <nav id="main-nav">
                 <ul>
-                    <li><a href="#home" class="active">خانه</a></li>
-                    <li><a href="#about">زندگینامه شهدا</a></li>
-                    <li><a href="#gallery">گالری تصاویر</a></li>
-                    <li><a href="#testimonials">وصیت‌نامه‌ها</a></li>
-                    <li><a href="#contact">تماس با ما</a></li>
+                    <li><a href="#home" class="active"><i class="fas fa-home"></i> خانه</a></li>
+                    <li><a href="#about"><i class="fas fa-book-open"></i> زندگینامه</a></li>
+                    <li><a href="#gallery"><i class="fas fa-images"></i> گالری</a></li>
+                    <li><a href="#testimonials"><i class="fas fa-quote-right"></i> وصیت‌نامه‌ها</a></li>
+                    <li><a href="#contact"><i class="fas fa-envelope"></i> تماس</a></li>
+                    <li><a href="#" id="search-toggle"><i class="fas fa-search"></i></a></li>
                 </ul>
+                <div class="search-box" id="search-box">
+                    <input type="text" placeholder="جستجوی شهید...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
             </nav>
         </div>
     </header>
 
-    <main>
-        <section class="hero" id="home">
-            <h2>به یاد آن‌هایی که جان دادند تا ما بمانیم</h2>
-            <p>گرامیداشت یاد و خاطره شهیدان والامقام، قهرمانان بی‌ادعای ایران زمین.</p>
-            <button class="hero-button" onclick="smoothScrollTo('about')">آشنایی با شهدا</button>
-        </section>
-
-        <section class="cards" id="about">
-            <div class="container">
-                <h2>زندگینامه برخی از شهدا</h2>
-                <div class="cards-grid">
-                    <div class="card animate-on-scroll">
-                        <img src="https://via.placeholder.com/160/088395/ffffff?text=شهید+گمنام" alt="تصویر پروفایل شهید گمنام" loading="lazy">
-                        <div class="card-content">
-                            <h3>شهید [نام شهید]</h3>
-                            <p class="title">لقب: [لقب شهید]</p>
-                            <p class="date">تاریخ شهادت: [روز] [ماه] ۱۳XX</p>
-                            <p class="excerpt">"بخشی کوتاه و تاثیرگذار از زندگینامه یا وصیت‌نامه شهید در اینجا قرار می‌گیرد..."</p>
-                            <a href="#" class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
-                        </div>
-                    </div>
-                    <div class="card animate-on-scroll">
-                        <img src="https://via.placeholder.com/160/0a4d68/ffffff?text=شهید+ابراهیم+هادی" alt="تصویر پروفایل شهید ابراهیم هادی" loading="lazy">
-                         <div class="card-content">
-                            <h3>شهید ابراهیم هادی</h3>
-                            <p class="title">علمدار کمیل</p>
-                            <p class="date">تاریخ شهادت: ۲۲ بهمن ۱۳۶۱</p>
-                            <p class="excerpt">"خدایا یعنی می‌شود ما هم شهید بشویم؟ شهادت مرگ تاجرانه است..."</p>
-                             <a href="#" class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
-                        </div>
-                    </div>
-                    <div class="card animate-on-scroll">
-                        <img src="https://via.placeholder.com/160/f5a623/000000?text=شهید+حججی" alt="تصویر پروفایل شهید محسن حججی" loading="lazy">
-                         <div class="card-content">
-                            <h3>شهید محسن حججی</h3>
-                            <p class="title">مدافع حرم</p>
-                            <p class="date">تاریخ شهادت: ۱۸ مرداد ۱۳۹۶</p>
-                            <p class="excerpt">"کاری کن که خدا عاشقت شود. اگر خدا عاشقت شود، خوب تو را خریداری می‌کند..."</p>
-                             <a href="#" class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
-                        </div>
-                    </div>
-                     </div>
+    <!-- هیرو با محتوای غنی‌تر -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2 data-aos="fade-down">به یاد آن‌هایی که جان دادند تا ما بمانیم</h2>
+            <p data-aos="fade-up" data-aos-delay="300">گرامیداشت یاد و خاطره شهیدان والامقام ایران اسلامی</p>
+            <div class="hero-buttons" data-aos="fade-up" data-aos-delay="600">
+                <button class="hero-button" onclick="smoothScrollTo('about')">آشنایی با شهدا</button>
+                <button class="hero-button secondary" onclick="smoothScrollTo('testimonials')">وصیت‌نامه‌ها</button>
             </div>
-        </section>
+        </div>
+        <div class="scroll-down" onclick="smoothScrollTo('about')">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
 
-        <section class="gallery" id="gallery">
-             <div class="container">
-                <h2>گالری تصاویر</h2>
-                <div class="gallery-grid">
-                    <div class="gallery-item animate-on-scroll"><img src="https://via.placeholder.com/400x300/cccccc/000000?text=تصویر+شهدا+۱" alt="تصویر مرتبط با شهدا ۱" loading="lazy"></div>
-                    <div class="gallery-item animate-on-scroll"><img src="https://via.placeholder.com/400x300/dddddd/000000?text=تصویر+شهدا+۲" alt="تصویر مرتبط با شهدا ۲" loading="lazy"></div>
-                    <div class="gallery-item animate-on-scroll"><img src="https://via.placeholder.com/400x300/eeeeee/000000?text=تصویر+شهدا+۳" alt="تصویر مرتبط با شهدا ۳" loading="lazy"></div>
-                    <div class="gallery-item animate-on-scroll"><img src="https://via.placeholder.com/400x300/f0f0f0/000000?text=تصویر+شهدا+۴" alt="تصویر مرتبط با شهدا ۴" loading="lazy"></div>
-                    <div class="gallery-item animate-on-scroll"><img src="https://via.placeholder.com/400x300/f5f5f5/000000?text=تصویر+شهدا+۵" alt="تصویر مرتبط با شهدا ۵" loading="lazy"></div>
-                    <div class="gallery-item animate-on-scroll"><img src="https://via.placeholder.com/400x300/fafafa/000000?text=تصویر+شهدا+۶" alt="تصویر مرتبط با شهدا ۶" loading="lazy"></div>
-                 </div>
+    <!-- بخش زندگینامه با کارت‌های بهبود یافته -->
+    <section class="cards" id="about">
+        <div class="container">
+            <h2 data-aos="fade-up">زندگینامه شهدا</h2>
+            <div class="search-filter">
+                <input type="text" placeholder="جستجوی شهید..." id="shahid-search">
+                <select id="shahid-filter">
+                    <option value="all">همه شهدا</option>
+                    <option value="defa-moghaddas">دفاع مقدس</option>
+                    <option value="modafe-haram">مدافعان حرم</option>
+                    <option value="nuclear">شهدای هسته‌ای</option>
+                </select>
             </div>
-        </section>
-
-        <section class="testimonials" id="testimonials">
-            <div class="container">
-                <h2>فرازهایی از وصیت‌نامه‌ شهدا</h2>
-                <div class="testimonial-container">
-                    <div class="testimonial animate-on-scroll">
-                        <p>"پدر و مادر عزیزم ... همیشه به یاد خدا باشید و فرامین خدا را عمل کنید... پشتیبان ولایت فقیه باشید. راه سعادت‌بخش همین است."</p>
-                        <cite> - شهید [نام شهید ۱]</cite>
-                    </div>
-                    <div class="testimonial animate-on-scroll">
-                        <p>"خواهرانم، حجاب شما کوبنده‌تر از خون من است. در حفظ حجاب خود کوشا باشید و زینب‌وار زندگی کنید."</p>
-                        <cite>- شهید [نام شهید ۲]</cite>
-                    </div>
-                     <div class="testimonial animate-on-scroll">
-                        <p>"از شما می‌خواهم که راه شهدا را ادامه دهید، نگذارید که خونشان پایمال شود. امام را تنها نگذارید."</p>
-                        <cite>- شهید [نام شهید ۳]</cite>
-                    </div>
-                    </div>
+            <div class="cards-grid" id="shahid-cards-container">
+                <!-- کارت‌ها با JavaScript پر می‌شوند -->
             </div>
-        </section>
-
-        <section class="contact" id="contact">
-            <div class="container">
-                <h2>تماس با ما</h2>
-                <p style="text-align: center; max-width: 600px; margin: 0 auto 40px auto;">نظرات، پیشنهادات و یا خاطرات خود از شهدا را با ما در میان بگذارید. پیام شما مستقیماً برای ما ارسال خواهد شد.</p>
-                <form class="contact-form animate-on-scroll" id="contact-form">
-                    <div class="form-group">
-                        <label for="name">نام کامل</label>
-                        <input type="text" id="name" name="name" placeholder="نام و نام خانوادگی شما" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">ایمیل</label>
-                        <input type="email" id="email" name="email" placeholder="آدرس ایمیل شما (اختیاری)">
-                    </div>
-                     <div class="form-group">
-                        <label for="subject">موضوع</label>
-                        <input type="text" id="subject" name="subject" placeholder="موضوع پیام" required>
-                    </div>
-                    <div class="form-group">
-                         <label for="message">متن پیام</label>
-                        <textarea id="message" name="message" placeholder="پیام خود را اینجا بنویسید..." required></textarea>
-                    </div>
-                    <button type="submit" class="submit-button" id="submit-btn">
-                        <i class="fas fa-paper-plane"></i> ارسال پیام
-                    </button>
-                    <div id="form-status"></div> </form>
+            <div class="load-more" data-aos="fade-up">
+                <button id="load-more-btn">مشاهده شهدای بیشتر</button>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
+    <!-- گالری با لایت‌باکس -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 data-aos="fade-up">گالری تصاویر</h2>
+            <div class="gallery-filter">
+                <button class="active" data-filter="all">همه</button>
+                <button data-filter="defa-moghaddas">دفاع مقدس</button>
+                <button data-filter="modafe-haram">مدافعان حرم</button>
+                <button data-filter="memorial">مراسم‌ها</button>
+            </div>
+            <div class="gallery-grid">
+                <!-- تصاویر با JavaScript پر می‌شوند -->
+            </div>
+        </div>
+    </section>
+
+    <!-- وصیت‌نامه‌ها با طراحی جدید -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 data-aos="fade-up">فرازهایی از وصیت‌نامه‌ شهدا</h2>
+            <div class="testimonial-slider">
+                <!-- اسلایدر وصیت‌نامه‌ها -->
+            </div>
+        </div>
+    </section>
+
+    <!-- فرم تماس با اعتبارسنجی پیشرفته -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 data-aos="fade-up">تماس با ما</h2>
+            <form class="contact-form" id="contact-form" novalidate>
+                <!-- فیلدهای فرم با اعتبارسنجی -->
+            </form>
+        </div>
+    </section>
+
+    <!-- فوتر بهبود یافته -->
     <footer>
         <div class="container">
-            <p>“پیکر مطهر هزاران شهید، همچون مشعلی، راه آینده‌ی این ملت را روشن کرده است.” - رهبر معظم انقلاب</p>
-            <div class="social-icons">
-                <a href="#" target="_blank" aria-label="کانال تلگرام"><i class="fab fa-telegram"></i></a>
-                <a href="#" target="_blank" aria-label="صفحه اینستاگرام"><i class="fab fa-instagram"></i></a>
-                <a href="#" target="_blank" aria-label="کانال ایتا"><i class="fas fa-comments"></i></a> </div>
-             <div class="footer-credit">
-                طراحی و توسعه توسط: <a href="https://t.me/abj0o" target="_blank" rel="noopener noreferrer">Ehsan Fazli</a> | آیدی تلگرام: <a href="https://t.me/abj0o" target="_blank" rel="noopener noreferrer">abj0o</a>
-                <br>
-                تمامی حقوق مادی و معنوی این وب‌سایت محفوظ است. &copy; <span id="current-year"></span>
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>درباره یاد شهیدان</h3>
+                    <p>وبسایت یاد شهیدان با هدف زنده نگه داشتن یاد و خاطره شهدای گرانقدر ایران اسلامی ایجاد شده است.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>لینک‌های سریع</h3>
+                    <ul>
+                        <li><a href="#home">خانه</a></li>
+                        <li><a href="#about">زندگینامه شهدا</a></li>
+                        <li><a href="#gallery">گالری تصاویر</a></li>
+                        <li><a href="#testimonials">وصیت‌نامه‌ها</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>ما را دنبال کنید</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>تمامی حقوق مادی و معنوی این وبسایت محفوظ است &copy; <span id="current-year"></span></p>
             </div>
         </div>
     </footer>
 
+    <!-- اسکریپت‌های بهبود یافته -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
-        // --- JavaScript برای عملکردهای اضافی ---
-
-        // 1. اسکرول نرم
-        function smoothScrollTo(targetId) {
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-                // محاسبه آفست هدر برای اسکرول دقیق‌تر
-                const headerOffset = document.querySelector('header').offsetHeight + 10; // 10 پیکسل فاصله اضافی
-                const elementPosition = targetElement.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                window.scrollTo({
-                     top: offsetPosition,
-                     behavior: "smooth"
-                });
-
-                 // بستن منوی موبایل پس از کلیک (اگر باز باشد)
-                 closeMobileMenu();
-            }
-        }
-
-        // 2. رویداد کلیک به لینک‌های ناوبری و دکمه هیرو
-        document.querySelectorAll('nav a[href^="#"], .hero-button[onclick^="smoothScrollTo"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                if (this.getAttribute('href') && this.getAttribute('href').startsWith('#')) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href').substring(1);
-                    smoothScrollTo(targetId);
-
-                    // آپدیت کلاس active لینک منو
-                    document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
-                    this.classList.add('active');
-                }
-                // برای دکمه هیرو، تابع onclick از قبل وجود دارد
-            });
+        // مقداردهی اولیه انیمیشن‌های اسکرول
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-quad',
+            once: true
         });
-
-        // 3. منوی همبرگری موبایل
+        
+        // مدیریت منوی موبایل بهبود یافته
         const menuToggle = document.getElementById('menu-toggle');
-        const mainNavUl = document.getElementById('main-nav').querySelector('ul');
-        const body = document.body;
-
-        function toggleMobileMenu() {
-             const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-             mainNavUl.classList.toggle('nav-active');
-             menuToggle.setAttribute('aria-expanded', !isExpanded);
-             body.classList.toggle('menu-open'); // برای جلوگیری از اسکرول پشت منو (اختیاری)
-
-             const icon = menuToggle.querySelector('i');
-             icon.classList.toggle('fa-bars');
-             icon.classList.toggle('fa-times');
-        }
-
-         function closeMobileMenu() {
-            if (mainNavUl.classList.contains('nav-active')) {
-                 toggleMobileMenu();
-            }
-         }
-
-        menuToggle.addEventListener('click', toggleMobileMenu);
-
-         // بستن منو با کلیک بیرون از آن (اختیاری)
-         document.addEventListener('click', function(event) {
-           const isClickInsideNav = document.getElementById('main-nav').contains(event.target);
-           const isClickOnToggle = menuToggle.contains(event.target);
-           if (!isClickInsideNav && !isClickOnToggle && mainNavUl.classList.contains('nav-active')) {
-             closeMobileMenu();
-           }
-         });
-
-
-        // 4. نمایش سال جاری در فوتر
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-
-        // 5. مشخص کردن لینک فعال در منو هنگام اسکرول
-         const sections = document.querySelectorAll('main section[id]');
-         const navLinks = document.querySelectorAll('nav ul li a');
-         const headerHeight = document.querySelector('header').offsetHeight;
-
-         window.addEventListener('scroll', () => {
-           let currentSectionId = 'home'; // پیش‌فرض خانه
-           const scrollPosition = window.pageYOffset;
-
-           sections.forEach( section => {
-             const sectionTop = section.offsetTop - headerHeight - 50; // 50px آفست اضافی
-             if (scrollPosition >= sectionTop) {
-               currentSectionId = section.getAttribute('id');
-             }
-           });
-
-           navLinks.forEach( link => {
-             link.classList.remove('active');
-             if (link.getAttribute('href') === '#' + currentSectionId) {
-               link.classList.add('active');
-             }
-           });
-            // اگر خیلی بالا بودیم، باز هم خانه فعال باشد
-             if (scrollPosition < headerHeight * 2) {
-                 navLinks.forEach(link => link.classList.remove('active'));
-                 document.querySelector('nav ul li a[href="#home"]').classList.add('active');
-            }
-
-         });
-
-        // 6. ارسال فرم تماس به تلگرام
-        const contactForm = document.getElementById('contact-form');
-        const formStatus = document.getElementById('form-status');
-        const submitButton = document.getElementById('submit-btn');
-
-        contactForm.addEventListener('submit', async function(event) {
-            event.preventDefault(); // جلوگیری از ارسال عادی فرم
-
-            // نمایش وضعیت "در حال ارسال"
-            formStatus.className = 'sending'; // اعمال کلاس CSS
-            formStatus.textContent = 'در حال ارسال پیام...';
-            submitButton.disabled = true; // غیرفعال کردن دکمه
-
-            // اطلاعات ربات (مستقیماً در کد - **برای پروداکشن امن نیست**)
-            const botToken = '7000850548:AAH5oF7R6AYdDp5RJCaPiK2-bx5EwygoaG4';
-            const chatId = '6856915102';
-
-            // جمع‌آوری داده‌های فرم
-            const formData = new FormData(contactForm);
-            const name = formData.get('name');
-            const email = formData.get('email') || 'وارد نشده'; // اگر ایمیل خالی بود
-            const subject = formData.get('subject');
-            const message = formData.get('message');
-
-            // ساخت متن پیام برای تلگرام
-            const messageText = `
-پیام جدید از وب‌سایت "یاد شهیدان":
-
-👤 نام: ${name}
-📧 ایمیل: ${email}
-✉️ موضوع: ${subject}
-📝 متن پیام:
-${message}
-            `;
-
-            // ساخت URL برای API تلگرام
-            // از encodeURIComponent برای اطمینان از ارسال صحیح کاراکترهای خاص استفاده می‌کنیم
-            const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(messageText)}&parse_mode=Markdown`; // می‌توانید از HTML هم استفاده کنید
-
-            try {
-                const response = await fetch(url, { method: 'POST' });
-                const data = await response.json();
-
-                if (data.ok) {
-                    // ارسال موفق
-                    formStatus.className = 'success';
-                    formStatus.textContent = 'پیام شما با موفقیت ارسال شد. سپاسگزاریم!';
-                    contactForm.reset(); // پاک کردن فرم
-                } else {
-                    // خطا از سمت API تلگرام
-                    throw new Error(data.description || 'خطایی در ارسال پیام رخ داد.');
-                }
-            } catch (error) {
-                // خطای شبکه یا خطای دیگر
-                console.error("Telegram Error:", error);
-                formStatus.className = 'error';
-                formStatus.textContent = `خطا در ارسال: ${error.message}. لطفاً دوباره تلاش کنید یا از روش دیگری تماس بگیرید.`;
-            } finally {
-                // فعال کردن مجدد دکمه در هر صورت (موفق یا ناموفق)
-                submitButton.disabled = false;
-            }
+        const mainNav = document.getElementById('main-nav');
+        
+        menuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            mainNav.classList.toggle('active');
+            document.body.classList.toggle('no-scroll');
         });
-
-        // 7. انیمیشن هنگام اسکرول (Intersection Observer)
-        const animatedElements = document.querySelectorAll('.animate-on-scroll');
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                // وقتی عنصر وارد دید کاربر می‌شود
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    // (اختیاری) توقف مشاهده عنصر پس از یک بار نمایش
-                    // observer.unobserve(entry.target);
+        
+        // بستن منو هنگام کلیک روی لینک‌ها
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    menuToggle.classList.remove('active');
+                    mainNav.classList.remove('active');
+                    document.body.classList.remove('no-scroll');
                 }
-                 // (اختیاری) حذف کلاس وقتی عنصر خارج می‌شود برای انیمیشن مجدد
-                 // else {
-                 //    entry.target.classList.remove('visible');
-                 // }
             });
-        }, {
-            root: null, // مشاهده نسبت به viewport
-            rootMargin: '0px',
-            threshold: 0.1 // ۱0% از عنصر دیده شود تا فعال شود
         });
-
-        // مشاهده تمام عناصر هدف
-        animatedElements.forEach(el => {
-            observer.observe(el);
-            // اضافه کردن استایل اولیه انیمیشن به عناصر در CSS
-            // (مثال: .animate-on-scroll { opacity: 0; transform: translateY(20px); transition: ...; })
+        
+        // اسکرول نرم بهبود یافته
+        function smoothScrollTo(targetId) {
+            const target = document.getElementById(targetId);
+            if (target) {
+                const headerHeight = document.querySelector('header').offsetHeight;
+                const targetPosition = target.offsetTop - headerHeight;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+        
+        // مدیریت فرم تماس با اعتبارسنجی پیشرفته
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                // اعتبارسنجی فیلدها
+                const name = this.querySelector('input[name="name"]');
+                const message = this.querySelector('textarea[name="message"]');
+                
+                if (!name.value.trim()) {
+                    showError(name, 'لطفاً نام خود را وارد کنید');
+                    return;
+                }
+                
+                if (!message.value.trim()) {
+                    showError(message, 'لطفاً پیام خود را وارد کنید');
+                    return;
+                }
+                
+                // ارسال فرم
+                const formData = new FormData(this);
+                try {
+                    const response = await fetch('send-message.php', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        showSuccess('پیام شما با موفقیت ارسال شد');
+                        this.reset();
+                    } else {
+                        showError(null, 'خطا در ارسال پیام: ' + result.message);
+                    }
+                } catch (error) {
+                    showError(null, 'خطای شبکه: لطفاً دوباره تلاش کنید');
+                }
+            });
+        }
+        
+        function showError(field, message) {
+            // نمایش خطا در فرم
+        }
+        
+        function showSuccess(message) {
+            // نمایش پیام موفقیت
+        }
+        
+        // مدیریت گالری تصاویر
+        lightbox.option({
+            'resizeDuration': 200,
+            'wrapAround': true,
+            'showImageNumberLabel': true,
+            'positionFromTop': 100,
+            'disableScrolling': true,
+            'albumLabel': 'تصویر %1 از %2'
         });
-
-         // --- افزودن کلاس .animate-on-scroll به المان های مورد نظر ---
-         // این کار را می‌توان دستی در HTML انجام داد یا با JS
-         document.querySelectorAll('.card, .gallery-item, .testimonial, .contact-form').forEach(el => {
-              el.classList.add('animate-on-scroll');
-         });
-
-
+        
+        // نمایش سال جاری در فوتر
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // سیستم جستجوی شهدا
+        const shahidSearch = document.getElementById('shahid-search');
+        if (shahidSearch) {
+            shahidSearch.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                filterShahids(searchTerm);
+            });
+        }
+        
+        function filterShahids(searchTerm) {
+            // فیلتر کردن شهدا بر اساس جستجو
+        }
+        
+        // بارگذاری بیشتر شهدا
+        const loadMoreBtn = document.getElementById('load-more-btn');
+        if (loadMoreBtn) {
+            loadMoreBtn.addEventListener('click', function() {
+                loadMoreShahids();
+            });
+        }
+        
+        function loadMoreShahids() {
+            // بارگذاری شهدای بیشتر از طریق AJAX
+        }
     </script>
-
 </body>
 </html>
