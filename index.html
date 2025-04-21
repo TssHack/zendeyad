@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>یاد شهیدان - گرامی‌داشت قهرمانان ایران</title>
+    <meta name="description" content="وب‌سایتی برای گرامیداشت یاد و خاطره شهیدان گرانقدر ایران اسلامی. زندگینامه، وصیت‌نامه، تصاویر و خاطرات شهدا.">
+    <meta name="keywords" content="شهید, شهدا, ایران, دفاع مقدس, مدافع حرم, زندگینامه شهدا, وصیت نامه شهدا, یاد شهیدان, Ehsan Fazli">
+
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* --- متغیرهای CSS برای مدیریت آسان‌تر --- */
+        :root {
+            --primary-color: #0a4d68; /* آبی تیره */
+            --secondary-color: #088395; /* آبی روشن‌تر */
+            --accent-color: #f5a623; /* رنگ تاکیدی - طلایی/نارنجی */
+            --light-color: #f8f9fa; /* سفید مایل به خاکستری */
+            --dark-color: #343a40; /* خاکستری تیره */
+            --text-color: #212529; /* رنگ متن اصلی */
+            --body-font: 'Vazirmatn', sans-serif;
+            --heading-font: 'Vazirmatn', sans-serif;
+            --base-padding: 15px;
+            --base-margin: 15px;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            --transition-speed: 0.3s ease;
+        }
+
+        /* --- ریست پایه و تنظیمات عمومی --- */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth; /* اسکرول نرم */
+            font-size: 16px; /* اندازه فونت پایه */
+        }
+
+        body {
+            font-family: var(--body-font);
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--light-color);
+            direction: rtl; /* راست به چپ برای فارسی */
+            overflow-x: hidden; /* جلوگیری از اسکرول افقی ناخواسته */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--heading-font);
+            font-weight: 700;
+            margin-bottom: var(--base-margin);
+            color: var(--primary-color);
+            line-height: 1.3;
+        }
+
+        h1 { font-size: 2.8rem; }
+        h2 { font-size: 2.2rem; text-align: center; margin-bottom: 1.5em; position: relative; padding-bottom: 10px; }
+        /* خط تزئینی زیر عناوین بخش‌ها */
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+        h3 { font-size: 1.6rem; }
+        p { margin-bottom: var(--base-margin); }
+        a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color var(--transition-speed);
+        }
+        a:hover { color: var(--primary-color); }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: var(--border-radius);
+        }
+        ul { list-style: none; }
+        section {
+            padding: 60px var(--base-padding);
+            margin-bottom: 20px;
+            background-color: #fff; /* پس‌زمینه سفید برای بخش‌ها */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        section:nth-of-type(odd) {
+            background-color: var(--light-color); /* تنوع رنگ پس‌زمینه */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--base-padding);
+        }
+
+        /* --- هدر و ناوبری --- */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: var(--base-padding) 0;
+            position: sticky; /* ثابت ماندن در بالای صفحه */
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* برای واکنش‌گرایی */
+        }
+
+        header h1 {
+            color: white;
+            font-size: 1.8rem;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-right: 20px; /* فاصله بین آیتم‌های منو */
+        }
+        nav ul li:last-child {
+            margin-right: 0;
+        }
+
+        nav ul li a {
+            color: white;
+            padding: 10px 15px;
+            font-weight: 400;
+            font-size: 1rem;
+            border-radius: var(--border-radius);
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active { /* کلاس active برای لینک فعال */
+            background-color: rgba(255, 255, 255, 0.2);
+            color: var(--accent-color);
+        }
+
+        /* --- منوی همبرگری برای موبایل --- */
+        .menu-toggle {
+            display: none; /* مخفی در دسکتاپ */
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* --- بخش Hero --- */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://via.placeholder.com/1920x800/0a4d68/ffffff?text=Background+Image+Here') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 120px var(--base-padding);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 70vh; /* ارتفاع بیشتر */
+            margin-bottom: 0; /* حذف فاصله پایین هیرو */
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white; /* رنگ عنوان هیرو */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+         .hero h2::after { display: none; } /* حذف خط زیرین در هیرو */
+
+        .hero-button {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 12px 30px;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color var(--transition-speed), transform var(--transition-speed);
+            text-transform: uppercase; /* حروف بزرگ برای دکمه */
+        }
+
+        .hero-button:hover {
+            background-color: #e4951b; /* کمی تیره‌تر هنگام هاور */
+            transform: translateY(-3px); /* افکت بلند شدن */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* --- بخش کارت‌ها (زندگینامه) --- */
+        .cards {
+            padding: 60px var(--base-padding);
+        }
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* ستون‌های واکنش‌گرا */
+            gap: 30px; /* فاصله بین کارت‌ها */
+            margin-top: 30px;
+        }
+        .card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden; /* جلوگیری از بیرون‌زدگی محتوا */
+            text-align: center;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            display: flex;
+            flex-direction: column; /* چیدمان عمودی محتوای کارت */
+        }
+        .card:hover {
+            transform: translateY(-10px); /* افکت هاور */
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+        .card img {
+            width: 150px; /* اندازه ثابت برای عکس */
+            height: 150px;
+            object-fit: cover; /* برش عکس برای تطابق */
+            border-radius: 50%; /* دایره‌ای کردن عکس */
+            margin: 20px auto 15px auto; /* وسط‌چین کردن عکس */
+            border: 4px solid var(--light-color); /* حاشیه دور عکس */
+        }
+        .card-content {
+            padding: 0 20px 20px 20px;
+            flex-grow: 1; /* باعث می‌شود محتوا فضای خالی را پر کند */
+        }
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            font-size: 1.4rem;
+        }
+        .card .title { /* برای لقب شهید */
+            color: var(--secondary-color);
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+        .card .date {
+            font-size: 0.9rem;
+            color: #6c757d; /* خاکستری */
+            margin-bottom: 15px;
+        }
+        .card .excerpt { /* متن کوتاه وصیت‌نامه */
+            font-size: 0.95rem;
+            color: var(--text-color);
+            font-style: italic;
+        }
+        .card .read-more {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 15px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: var(--border-radius);
+            font-size: 0.9rem;
+        }
+        .card .read-more:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* --- بخش گالری --- */
+        .gallery {
+            padding: 60px var(--base-padding);
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px; /* فاصله کمتر بین تصاویر */
+            margin-top: 30px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 250px; /* ارتفاع ثابت برای تصاویر */
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            transition: transform var(--transition-speed), opacity var(--transition-speed);
+            cursor: pointer; /* اشاره‌گر برای نشان دادن قابلیت کلیک (اگر لایت‌باکس اضافه شود) */
+        }
+        .gallery-item img:hover {
+            transform: scale(1.05); /* بزرگنمایی کم */
+            opacity: 0.85;
+        }
+
+        /* --- بخش وصیت‌نامه‌ها --- */
+        .testimonials {
+            background-color: var(--primary-color); /* پس‌زمینه متفاوت */
+            color: var(--light-color);
+            padding: 80px var(--base-padding);
+        }
+        .testimonials h2 {
+            color: white; /* رنگ عنوان */
+        }
+        .testimonials h2::after {
+            background-color: white; /* رنگ خط زیرین */
+        }
+        .testimonial-container {
+            max-width: 900px;
+            margin: 30px auto 0 auto;
+            display: grid;
+            grid-template-columns: 1fr; /* تک ستونی در موبایل */
+            gap: 30px;
+        }
+        .testimonial {
+            background-color: rgba(255, 255, 255, 0.1); /* پس‌زمینه نیمه‌شفاف */
+            padding: 30px;
+            border-radius: var(--border-radius);
+            border-left: 5px solid var(--accent-color); /* نوار رنگی کنار نقل‌قول */
+            position: relative;
+        }
+        .testimonial p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 15px; /* کاهش فاصله پایین پاراگراف */
+        }
+        .testimonial cite {
+            display: block;
+            text-align: left; /* نام شهید در سمت چپ */
+            font-weight: 600;
+            font-style: normal;
+            color: var(--accent-color);
+        }
+         .testimonial::before { /* علامت نقل قول تزئینی */
+            content: '\f10d'; /* آیکون Font Awesome برای نقل قول باز */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2.5rem;
+            color: rgba(255, 255, 255, 0.15);
+            z-index: 0;
+        }
+        .testimonial p {
+            position: relative; /* برای قرارگیری روی علامت نقل قول */
+            z-index: 1;
+        }
+
+
+        /* --- بخش تماس با ما --- */
+        .contact {
+            padding: 60px var(--base-padding);
+        }
+        .contact-form {
+            max-width: 700px;
+            margin: 30px auto 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label { /* اگر از لیبل استفاده شود */
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            border-radius: var(--border-radius);
+            font-family: var(--body-font);
+            font-size: 1rem;
+            transition: border-color var(--transition-speed);
+        }
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group textarea:focus {
+            border-color: var(--secondary-color);
+            outline: none; /* حذف خط دور پیش‌فرض */
+            box-shadow: 0 0 0 2px rgba(8, 131, 149, 0.2); /* افزودن هاله فوکوس */
+        }
+        .form-group textarea {
+            min-height: 150px; /* حداقل ارتفاع برای ناحیه متن */
+            resize: vertical; /* اجازه تغییر اندازه فقط عمودی */
+        }
+        .submit-button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color var(--transition-speed), transform var(--transition-speed);
+            display: inline-block; /* برای ترازبندی بهتر */
+            width: auto; /* عرض خودکار */
+        }
+        .submit-button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* --- فوتر --- */
+        footer {
+            background-color: var(--dark-color);
+            color: var(--light-color);
+            text-align: center;
+            padding: 40px var(--base-padding);
+            margin-top: 30px; /* فاصله از بخش قبلی */
+        }
+        footer p {
+            margin-bottom: 15px;
+            font-size: 1rem;
+            font-style: italic;
+            opacity: 0.9;
+        }
+        .social-icons a {
+            color: var(--light-color);
+            font-size: 1.6rem; /* اندازه آیکون‌ها */
+            margin: 0 12px;
+            transition: color var(--transition-speed), transform var(--transition-speed);
+            display: inline-block; /* برای اعمال transform */
+        }
+        .social-icons a:hover {
+            color: var(--accent-color);
+            transform: scale(1.2); /* کمی بزرگنمایی هنگام هاور */
+        }
+        .footer-credit {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        .footer-credit a {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+        .footer-credit a:hover {
+             text-decoration: underline;
+        }
+
+
+        /* --- استایل‌های واکنش‌گرا (Responsive) --- */
+
+        /* تبلت و دستگاه‌های کوچک‌تر */
+        @media (max-width: 992px) {
+            h1 { font-size: 2.4rem; }
+            h2 { font-size: 1.9rem; }
+            .hero h2 { font-size: 2.5rem; }
+            .cards-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+            .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+             .testimonial-container { grid-template-columns: 1fr; }
+        }
+
+        /* موبایل */
+        @media (max-width: 768px) {
+            html { font-size: 15px; } /* کمی کوچک‌تر کردن فونت پایه */
+            header .container {
+                flex-direction: column; /* چیدمان عمودی در موبایل */
+                align-items: flex-start; /* تراز از راست */
+            }
+            header h1 {
+                margin-bottom: 10px; /* فاصله زیر لوگو */
+                width: 100%;
+                display: flex;
+                justify-content: space-between; /* قرار دادن همبرگر در مقابل لوگو */
+                align-items: center;
+            }
+            .menu-toggle {
+                display: block; /* نمایش دکمه همبرگری */
+            }
+            nav {
+                 width: 100%;
+            }
+            nav ul {
+                display: none; /* مخفی کردن منوی اصلی */
+                flex-direction: column; /* نمایش عمودی آیتم‌ها */
+                width: 100%;
+                background-color: rgba(10, 77, 104, 0.95); /* پس‌زمینه برای منوی باز شده */
+                padding: 10px 0;
+                position: absolute; /* موقعیت مطلق برای نمایش روی محتوا */
+                top: 100%; /* زیر هدر */
+                right: 0;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+                border-bottom-left-radius: var(--border-radius);
+                border-bottom-right-radius: var(--border-radius);
+            }
+             nav ul.nav-active { /* کلاس برای نمایش منو */
+                 display: flex;
+             }
+            nav ul li {
+                margin: 0;
+                width: 100%;
+                text-align: center;
+                 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+             nav ul li:last-child {
+                 border-bottom: none;
+             }
+            nav ul li a {
+                display: block; /* تمام عرض والد را بگیرد */
+                padding: 15px;
+                border-radius: 0; /* حذف گردی گوشه‌ها */
+            }
+            nav ul li a:hover,
+            nav ul li a.active {
+                background-color: var(--secondary-color);
+                color: white;
+            }
+
+            .hero { padding: 80px var(--base-padding); min-height: 50vh; }
+            .hero h2 { font-size: 2rem; }
+            .hero-button { padding: 10px 25px; font-size: 1rem; }
+
+            section { padding: 40px var(--base-padding); }
+            h2 { font-size: 1.8rem; margin-bottom: 1em; }
+            .cards-grid { grid-template-columns: 1fr; gap: 20px; } /* تک ستونی در موبایل */
+            .card { margin-bottom: 20px; }
+            .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;}
+            .gallery-item img { height: 180px; }
+            .contact-form { padding: 20px; }
+            .footer p { font-size: 0.9rem; }
+            .social-icons a { font-size: 1.4rem; margin: 0 8px; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1><a href="#home" style="color: white; text-decoration: none;">یاد شهیدان</a></h1>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#home">خانه</a></li>
+                    <li><a href="#about">زندگینامه شهدا</a></li>
+                    <li><a href="#gallery">گالری تصاویر</a></li>
+                    <li><a href="#testimonials">وصیت‌نامه‌ها</a></li>
+                    <li><a href="#contact">تماس با ما</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <h2>به یاد آن‌هایی که جان دادند تا ما بمانیم</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 30px; max-width: 600px; opacity: 0.9;">گرامیداشت یاد و خاطره شهیدان والامقام، قهرمانان بی‌ادعای ایران زمین.</p>
+            <button class="hero-button" onclick="smoothScrollTo('about')">آشنایی با شهدا</button>
+        </section>
+
+        <section class="cards" id="about">
+            <div class="container">
+                <h2>زندگینامه برخی از شهدا</h2>
+                <div class="cards-grid">
+                    <div class="card">
+                        <img src="https://via.placeholder.com/150/088395/ffffff?text=شهید+گمنام" alt="تصویر شهید گمنام">
+                        <div class="card-content">
+                            <h3>شهید [نام شهید]</h3>
+                            <p class="title">لقب: [لقب شهید]</p>
+                            <p class="date">تاریخ شهادت: [روز] [ماه] ۱۳XX</p>
+                            <p class="excerpt">"بخشی کوتاه و تاثیرگذار از زندگینامه یا وصیت‌نامه شهید در اینجا قرار می‌گیرد..."</p>
+                            <a href="#" class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://via.placeholder.com/150/0a4d68/ffffff?text=شهید+ابراهیم+هادی" alt="تصویر شهید ابراهیم هادی">
+                         <div class="card-content">
+                            <h3>شهید ابراهیم هادی</h3>
+                            <p class="title">علمدار کمیل</p>
+                            <p class="date">تاریخ شهادت: ۲۲ بهمن ۱۳۶۱</p>
+                            <p class="excerpt">"خدایا یعنی می‌شود ما هم شهید بشویم؟ شهادت مرگ تاجرانه است..."</p>
+                             <a href="#" class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://via.placeholder.com/150/f5a623/000000?text=شهید+حججی" alt="تصویر شهید محسن حججی">
+                         <div class="card-content">
+                            <h3>شهید محسن حججی</h3>
+                            <p class="title">مدافع حرم</p>
+                            <p class="date">تاریخ شهادت: ۱۸ مرداد ۱۳۹۶</p>
+                            <p class="excerpt">"کاری کن که خدا عاشقت شود. اگر خدا عاشقت شود، خوب تو را خریداری می‌کند..."</p>
+                             <a href="#" class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
+                        </div>
+                    </div>
+                     </div>
+            </div>
+        </section>
+
+        <section class="gallery" id="gallery">
+             <div class="container">
+                <h2>گالری تصاویر</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item"><img src="https://via.placeholder.com/400x300/cccccc/000000?text=تصویر+۱" alt="تصویر مرتبط با شهدا ۱"></div>
+                    <div class="gallery-item"><img src="https://via.placeholder.com/400x300/dddddd/000000?text=تصویر+۲" alt="تصویر مرتبط با شهدا ۲"></div>
+                    <div class="gallery-item"><img src="https://via.placeholder.com/400x300/eeeeee/000000?text=تصویر+۳" alt="تصویر مرتبط با شهدا ۳"></div>
+                    <div class="gallery-item"><img src="https://via.placeholder.com/400x300/f0f0f0/000000?text=تصویر+۴" alt="تصویر مرتبط با شهدا ۴"></div>
+                    <div class="gallery-item"><img src="https://via.placeholder.com/400x300/f5f5f5/000000?text=تصویر+۵" alt="تصویر مرتبط با شهدا ۵"></div>
+                    <div class="gallery-item"><img src="https://via.placeholder.com/400x300/fafafa/000000?text=تصویر+۶" alt="تصویر مرتبط با شهدا ۶"></div>
+                     </div>
+            </div>
+        </section>
+
+        <section class="testimonials" id="testimonials">
+            <div class="container">
+                <h2>فرازهایی از وصیت‌نامه‌ شهدا</h2>
+                <div class="testimonial-container">
+                    <div class="testimonial">
+                        <p>"پدر و مادر عزیزم ... همیشه به یاد خدا باشید و فرامین خدا را عمل کنید... پشتیبان ولایت فقیه باشید. راه سعادت‌بخش همین است."</p>
+                        <cite> - شهید [نام شهید ۱]</cite>
+                    </div>
+                    <div class="testimonial">
+                        <p>"خواهرانم، حجاب شما کوبنده‌تر از خون من است. در حفظ حجاب خود کوشا باشید و زینب‌وار زندگی کنید."</p>
+                        <cite>- شهید [نام شهید ۲]</cite>
+                    </div>
+                     <div class="testimonial">
+                        <p>"از شما می‌خواهم که راه شهدا را ادامه دهید، نگذارید که خونشان پایمال شود. امام را تنها نگذارید."</p>
+                        <cite>- شهید [نام شهید ۳]</cite>
+                    </div>
+                    </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="container">
+                <h2>تماس با ما</h2>
+                <p style="text-align: center; max-width: 600px; margin: 0 auto 30px auto;">نظرات، پیشنهادات و یا خاطرات خود از شهدا را با ما در میان بگذارید.</p>
+                <form class="contact-form" action="#" method="post"> <div class="form-group">
+                        <label for="name">نام کامل</label>
+                        <input type="text" id="name" name="name" placeholder="نام و نام خانوادگی شما" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">ایمیل</label>
+                        <input type="email" id="email" name="email" placeholder="آدرس ایمیل شما" required>
+                    </div>
+                     <div class="form-group">
+                        <label for="subject">موضوع</label>
+                        <input type="text" id="subject" name="subject" placeholder="موضوع پیام" required>
+                    </div>
+                    <div class="form-group">
+                         <label for="message">متن پیام</label>
+                        <textarea id="message" name="message" placeholder="پیام خود را اینجا بنویسید..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">ارسال پیام <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>“پیکر مطهر هزاران شهید، همچون مشعلی، راه آینده‌ی این ملت را روشن کرده است.” - رهبر معظم انقلاب</p>
+            <div class="social-icons">
+                <a href="#" target="_blank" aria-label="تلگرام"><i class="fab fa-telegram"></i></a>
+                <a href="#" target="_blank" aria-label="اینستاگرام"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank" aria-label="ایتا"><i class="fas fa-comments"></i></a> </div>
+             <div class="footer-credit">
+                طراحی و توسعه توسط: <a href="https://t.me/abj0o" target="_blank">Ehsan Fazli</a> | آیدی تلگرام: <a href="https://t.me/abj0o" target="_blank">abj0o</a>
+                <br>
+                تمامی حقوق مادی و معنوی این وب‌سایت محفوظ است. &copy; <span id="current-year"></span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- JavaScript برای عملکردهای اضافی ---
+
+        // تابع اسکرول نرم
+        function smoothScrollTo(targetId) {
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // اضافه کردن رویداد کلیک به لینک‌های ناوبری برای اسکرول نرم
+        document.querySelectorAll('nav a[href^="#"], .hero-button[onclick^="smoothScrollTo"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                // اگر دکمه هیرو بود، از قبل onclick دارد و نیاز به پیشگیری نیست
+                if(this.getAttribute('href')) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1); // حذف #
+                     smoothScrollTo(targetId);
+
+                    // بستن منوی موبایل پس از کلیک (اگر باز باشد)
+                     const navUl = document.getElementById('main-nav').querySelector('ul');
+                     const menuToggle = document.getElementById('menu-toggle');
+                     if (navUl.classList.contains('nav-active')) {
+                         navUl.classList.remove('nav-active');
+                          menuToggle.querySelector('i').classList.remove('fa-times'); // تغییر آیکون به حالت بسته
+                         menuToggle.querySelector('i').classList.add('fa-bars');
+                     }
+
+                    // آپدیت کلاس active لینک (اختیاری)
+                    document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+                    this.classList.add('active');
+                }
+            });
+        });
+
+         // فعال کردن منوی همبرگری موبایل
+        const menuToggle = document.getElementById('menu-toggle');
+        const mainNavUl = document.getElementById('main-nav').querySelector('ul');
+
+        menuToggle.addEventListener('click', () => {
+            mainNavUl.classList.toggle('nav-active');
+            // تغییر آیکون همبرگر به ضربدر و برعکس
+            const icon = menuToggle.querySelector('i');
+            if (mainNavUl.classList.contains('nav-active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // نمایش سال جاری در فوتر
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+         // (اختیاری) مشخص کردن لینک فعال در منو هنگام اسکرول
+         const sections = document.querySelectorAll('section[id]');
+         const navLi = document.querySelectorAll('nav ul li a');
+
+         window.addEventListener('scroll', () => {
+           let current = '';
+           sections.forEach( section => {
+             const sectionTop = section.offsetTop;
+             // مقداری آفست برای فعال شدن لینک قبل از رسیدن دقیق به بالای بخش
+             const sectionHeight = section.clientHeight;
+             if (pageYOffset >= (sectionTop - sectionHeight / 3) ) {
+               current = section.getAttribute('id');
+             }
+           });
+
+           navLi.forEach( a => {
+             a.classList.remove('active');
+             if (a.getAttribute('href') === '#' + current) {
+               a.classList.add('active');
+             }
+           });
+            // اگر در بالای صفحه هستیم، لینک خانه فعال شود
+            if (pageYOffset < 300) { // مقدار 300 پیکسل تقریبی است
+                 navLi.forEach( a => a.classList.remove('active'));
+                 document.querySelector('nav ul li a[href="#home"]').classList.add('active');
+            }
+         });
+
+    </script>
+
+</body>
+</html>
